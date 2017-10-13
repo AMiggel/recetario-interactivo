@@ -1,0 +1,22 @@
+{
+  "name": "recetario-interactivo",
+  "version": "1.0.0",
+  "description": "Practica 5 de programacion web, se realiza un recetario interactivo",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AMiggel/recetario-interactivo.git"
+  },
+  "author": "Antonio Miguel Marín",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AMiggel/recetario-interactivo/issues"
+  },
+  "homepage": "https://github.com/AMiggel/recetario-interactivo#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
