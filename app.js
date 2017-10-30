@@ -3,48 +3,51 @@ var mongoose = require ('mongoose');
 var app = express();
 var bodyParser = require('body-parser');
 
+// connect data base  mongodb
 mongoose.connect("mongodb://localhost/recetario");
 
 app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({extended: true }));  
 
-// var ciudadSchema= {
-// 	nombre: String,
-// 	pais: String
-// };
 
-//  var Ciudad = mongoose.model("ciudad",ciudadSchema);
+// entidades
+var recetaSchema={
+	name:String,
+	origen:String,
+	timeP:String,
+	instrucciones:String
+};
+
+var Receta = mongoose.model("receta",recetaSchema);
+
 
 app.set("view engine","pug");
-
 app.use(express.static("public"));
 
+// method get
 app.get("/inicio", function(req,res){
 	res.render("index");
-
-	// var data ={
-	// 	nombre:"Medellin",
-	// 	pais: "Colombia"
-	// }
-	// var ciudad = new Ciudad(data);
-	// ciudad.save(function(err){
-	// 	console.log(ciudad);
-	// });
-
-
 });
 app.get("/graphics", function(req,res){
 	res.render("graphics");
 });
 
+// method post
 app.post("/receta", function(req,res){
 
-    var usuario = req.body.usuario;
-    var pass= req.body.pass;
-       res.send(usuario + ' ' +pass + ' ');
-       console.log("posted")
+	var data ={
+		name : req.body.name,
+		origen : req.body.origen,
+    	timeP : req.body.timeP,
+    	instrucciones : req.body.instrucciones
+    	}
+	var receta= new Receta(data);
+	receta.save(function(err){
+	console.log(receta);	
+	});  
 
 });
+
 
 app.listen(8080);
