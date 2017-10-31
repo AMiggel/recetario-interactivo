@@ -4,12 +4,11 @@ var app = express();
 var bodyParser = require('body-parser');
 
 // connect data base  mongodb
-mongoose.connect("mongodb://localhost/recetario");
+// mongoose.connect("mongodb://localhost/recetario");
 
 app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({extended: true }));  
-
 
 // entidades
 var recetaSchema={
@@ -18,8 +17,18 @@ var recetaSchema={
 	timeP:String,
 	instrucciones:String
 };
-
 var Receta = mongoose.model("receta",recetaSchema);
+
+var ingredienteSchema={
+	name:String,
+	origen:String,
+}
+ var Ingrediente = mongoose.model("ingrediente",ingredienteSchema);
+
+var ciudadSchema={
+	name:String;
+	pais:String;
+}
 
 
 app.set("view engine","pug");
