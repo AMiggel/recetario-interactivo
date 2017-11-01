@@ -4,7 +4,7 @@ var app = express();
 var bodyParser = require('body-parser');
 
 // connect data base  mongodb
-// mongoose.connect("mongodb://localhost/recetario");
+ mongoose.connect("mongodb://localhost/recetario");
 
 app.use(bodyParser.json());
 
@@ -21,14 +21,15 @@ var Receta = mongoose.model("receta",recetaSchema);
 
 var ingredienteSchema={
 	name:String,
-	origen:String,
+	origen:String
 }
- var Ingrediente = mongoose.model("ingrediente",ingredienteSchema);
+var Ingrediente = mongoose.model("ingrediente",ingredienteSchema);
 
 var ciudadSchema={
-	name:String;
-	pais:String;
+	name:String,
+	pais:String
 }
+var ciudad = mongoose.model("ciudad",ciudadSchema);
 
 
 app.set("view engine","pug");
@@ -42,6 +43,15 @@ app.get("/graphics", function(req,res){
 	res.render("graphics");
 });
 
+app.get("/recetas",function(req,res){
+	Receta.find(function(err,documento){
+	if(err){console.log(error)}
+	res.render("/inicio",{ recetas:documento})
+
+	});
+	res.render("recetas");
+
+});
 // method post
 app.post("/receta", function(req,res){
 
@@ -51,6 +61,7 @@ app.post("/receta", function(req,res){
     	timeP : req.body.timeP,
     	instrucciones : req.body.instrucciones
     	}
+
 	var receta= new Receta(data);
 	receta.save(function(err){
 	console.log(receta);	
