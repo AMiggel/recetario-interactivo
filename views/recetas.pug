@@ -1,18 +1,77 @@
-h1 Recetas
-    p
-        a(href="/recetas/create") Crear nueva receta
-        table
-            thead
-            tr
-             th titulo
-             th origen
-             th
-             th
-             th
-                tbody
-                   each item in recetas
-                    tr
-                        td #{item.name}
-                        td #{item.origen}
-    
-
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title Recetas
+    // Bootstrap core CSS
+    link(href='vendor/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+    // Custom styles for this template
+    link(href='css/portfolio-item.css', rel='stylesheet')
+  body
+    // Navigation
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
+      .container
+        a.navbar-brand(href='#') Inicio
+        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        #navbarResponsive.collapse.navbar-collapse
+          ul.navbar-nav.ml-auto
+            li.nav-item.active
+              a.nav-link(href='#')
+                | Home
+                span.sr-only (current)
+            li.nav-item
+              a.nav-link(href='#') About
+            li.nav-item
+              a.nav-link(href='#') Services
+            li.nav-item
+              a.nav-link(href='#') Contact
+    // Page Content
+    .container
+      // Portfolio Item Heading
+      each item in recetas
+         h1 #{item.name}
+         a(href="/recetas/#{item._id}") Ver
+         
+    //-   .row
+    //-     .col-md-8
+    //-       img.img-fluid(src='http://placehold.it/750x500', alt='')
+    //-     .col-md-4
+    //-       h3.my-3 Project Description
+    //-       p
+    //-         | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.
+    //-       h3.my-3 Project Details
+    //-       ul
+    //-         li Lorem Ipsum
+    //-         li Dolor Sit Amet
+    //-         li Consectetur
+    //-         li Adipiscing Elit
+    //-   // /.row
+    //-   // Related Projects Row
+    //-   h3.my-4 Related Projects
+    //-   .row
+    //-     .col-md-3.col-sm-6.mb-4
+    //-       a(href='#')
+    //-         img.img-fluid(src='http://placehold.it/500x300', alt='')
+    //-     .col-md-3.col-sm-6.mb-4
+    //-       a(href='#')
+    //-         img.img-fluid(src='http://placehold.it/500x300', alt='')
+    //-     .col-md-3.col-sm-6.mb-4
+    //-       a(href='#')
+    //-         img.img-fluid(src='http://placehold.it/500x300', alt='')
+    //-     .col-md-3.col-sm-6.mb-4
+    //-       a(href='#')
+    //-         img.img-fluid(src='http://placehold.it/500x300', alt='')
+    //-   // /.row
+    //- // /.container
+    //- // Footer
+    //- footer.py-5.bg-dark
+    //-   .container
+    //-     p.m-0.text-center.text-white Copyright © Your Website 2017
+    //-   // /.container
+    //- // Bootstrap core JavaScript
+    //- script(src='vendor/jquery/jquery.min.js')
+    //- script(src='vendor/bootstrap/js/bootstrap.bundle.min.js')

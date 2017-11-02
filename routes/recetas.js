@@ -14,17 +14,20 @@ exports.recetas = function(req, res){
    	}
    })
 };
-   //
-
-exports.create = function(req, res){
-   //
-};
-exports.store = function(req, res){
-   //
-};
+ 
 exports.show = function(req, res){
-   //
+
+     receta.findById(req.params.id, function(err, recetas){
+      if(err){
+         res.send(err);
+      }else{
+         res.render('recetas/show', {
+            recetas: recetas
+         });
+      }
+   });
 };
+
 exports.edit = function(req, res){
    //
 };

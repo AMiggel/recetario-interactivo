@@ -22,11 +22,6 @@ var recetaSchema= mongoose.Schema({
 var RecetaModel = mongoose.model('receta',recetaSchema);
 recetas.setModel(RecetaModel);
 
-app.get('/recetas', recetas.recetas);
-app.get('/recetas/create', recetas.create);
-app.post('/recetas', recetas.store);
-app.get('/recetas/:id', recetas.show);
-app.get('/recetas/:id/edit', recetas.edit);
 
 
 
@@ -56,15 +51,11 @@ app.get("/graphics", function(req,res){
 	res.render("graphics");
 });
 
-// app.get("/recetas",function(req,res){
-// 	Receta.find(function(err,documento){
-// 	if(err){console.log(error)}
-// 	res.render("/inicio",{ recetas:documento})
+app.get('/recetas', recetas.recetas);
+app.get('/recetas/:id', recetas.show);
+app.get('/recetas/:id/edit', recetas.edit);
 
-// 	});
-// 	res.render("recetas");
 
-// });
 // method post
 app.post("/receta", function(req,res){
 
@@ -75,7 +66,7 @@ app.post("/receta", function(req,res){
     	instrucciones : req.body.instrucciones
     	}
 
-	var receta= new Receta(data);
+	var receta= new RecetaModel(data);
 	receta.save(function(err){
 	console.log(receta);	
 	});  
