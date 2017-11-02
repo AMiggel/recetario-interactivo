@@ -13,16 +13,16 @@ app.use(bodyParser.urlencoded({extended: true }));
 
 // entidades
 var recetaSchema= mongoose.Schema({
-	name:{type:String,required: true},
-	origen:{type: String,required:true},
-	timeP:{type: String,required:true},
-	instrucciones:{type: String,required:true}
+	name:{type:String},
+	origen:{type: String},
+	timeP:{type: String},
+	instrucciones:{type: String}
 });
 
 var RecetaModel = mongoose.model('receta',recetaSchema);
 recetas.setModel(RecetaModel);
 
-app.get('/recetas', recetas.index);
+app.get('/recetas', recetas.recetas);
 app.get('/recetas/create', recetas.create);
 app.post('/recetas', recetas.store);
 app.get('/recetas/:id', recetas.show);

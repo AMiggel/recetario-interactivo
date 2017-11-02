@@ -1,19 +1,18 @@
-
-block content
-    h1 Recetas
+h1 Recetas
     p
         a(href="/recetas/create") Crear nueva receta
-        -if(recetas.length > 0)
         table
             thead
-                tr
-                    th titulo
-                    th origen
-                    th
-                    th
-                    th
+            tr
+             th titulo
+             th origen
+             th
+             th
+             th
                 tbody
-                    -each item in personajes
+                   each item in recetas
                     tr
                         td #{item.name}
-                        td #{item.}
+                        td #{item.origen}
+    
+

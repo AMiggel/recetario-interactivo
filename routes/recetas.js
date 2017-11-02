@@ -3,7 +3,7 @@ exports.setModel = function(modelo){
 	receta = modelo;
 	};
 
-exports.index = function(req, res){
+exports.recetas = function(req, res){
    receta.find({},function(err,recetas){
    	if(err){
    		res.send('ha surgido un error')
