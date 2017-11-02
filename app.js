@@ -4,18 +4,22 @@ var recetas = require('./routes/recetas')
 var app = express();
 var bodyParser = require('body-parser');
 
+
+
+
 // connect data base  mongodb
 mongoose.connect("mongodb://localhost/recetario");
 
 app.use(bodyParser.json());
-
 app.use(bodyParser.urlencoded({extended: true }));  
+
 
 // entidades
 var recetaSchema= mongoose.Schema({
 	name:{type:String},
 	origen:{type: String},
 	timeP:{type: String},
+	imageUrl:{type: String},
 	instrucciones:{type: String}
 });
 
@@ -50,7 +54,6 @@ app.get("/inicio", function(req,res){
 app.get("/graphics", function(req,res){
 	res.render("graphics");
 });
-
 app.get('/recetas', recetas.recetas);
 app.get('/recetas/:id', recetas.show);
 app.get('/recetas/:id/edit', recetas.edit);
@@ -63,6 +66,7 @@ app.post("/receta", function(req,res){
 		name : req.body.name,
 		origen : req.body.origen,
     	timeP : req.body.timeP,
+    	imageUrl: req.body.imageUrl,
     	instrucciones : req.body.instrucciones
     	}
 

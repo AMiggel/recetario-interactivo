@@ -9,69 +9,41 @@ html(lang='en')
     // Bootstrap core CSS
     link(href='vendor/bootstrap/css/bootstrap.min.css', rel='stylesheet')
     // Custom styles for this template
-    link(href='css/portfolio-item.css', rel='stylesheet')
+    link(href='css/3-col-portfolio.css', rel='stylesheet')
   body
     // Navigation
-    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
       .container
-        a.navbar-brand(href='#') Inicio
+        a.navbar-brand(href='#') Start Bootstrap
         button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
           span.navbar-toggler-icon
         #navbarResponsive.collapse.navbar-collapse
           ul.navbar-nav.ml-auto
             li.nav-item.active
-              a.nav-link(href='#')
-                | Home
+              a.nav-link(href='/inicio')
+                | inicio
                 span.sr-only (current)
             li.nav-item
-              a.nav-link(href='#') About
+              a.nav-link(href='/graphics') Estadísticas Gráficas
             li.nav-item
-              a.nav-link(href='#') Services
-            li.nav-item
-              a.nav-link(href='#') Contact
+              a.nav-link(href='#') seleccionar idioma
+
     // Page Content
-    .container
-      // Portfolio Item Heading
-      each item in recetas
-         h1 #{item.name}
-         a(href="/recetas/#{item._id}") Ver
-         
-    //-   .row
-    //-     .col-md-8
-    //-       img.img-fluid(src='http://placehold.it/750x500', alt='')
-    //-     .col-md-4
-    //-       h3.my-3 Project Description
-    //-       p
-    //-         | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.
-    //-       h3.my-3 Project Details
-    //-       ul
-    //-         li Lorem Ipsum
-    //-         li Dolor Sit Amet
-    //-         li Consectetur
-    //-         li Adipiscing Elit
-    //-   // /.row
-    //-   // Related Projects Row
-    //-   h3.my-4 Related Projects
-    //-   .row
-    //-     .col-md-3.col-sm-6.mb-4
-    //-       a(href='#')
-    //-         img.img-fluid(src='http://placehold.it/500x300', alt='')
-    //-     .col-md-3.col-sm-6.mb-4
-    //-       a(href='#')
-    //-         img.img-fluid(src='http://placehold.it/500x300', alt='')
-    //-     .col-md-3.col-sm-6.mb-4
-    //-       a(href='#')
-    //-         img.img-fluid(src='http://placehold.it/500x300', alt='')
-    //-     .col-md-3.col-sm-6.mb-4
-    //-       a(href='#')
-    //-         img.img-fluid(src='http://placehold.it/500x300', alt='')
-    //-   // /.row
-    //- // /.container
-    //- // Footer
-    //- footer.py-5.bg-dark
-    //-   .container
-    //-     p.m-0.text-center.text-white Copyright © Your Website 2017
-    //-   // /.container
-    //- // Bootstrap core JavaScript
-    //- script(src='vendor/jquery/jquery.min.js')
-    //- script(src='vendor/bootstrap/js/bootstrap.bundle.min.js')
+    .container-fluid
+      // Page Heading
+      h1.my-4
+        | Recetas 
+        small Deliciosas
+      .row
+       each item in recetas
+            .col-lg-4.col-sm-6.portfolio-item
+              .card.h-100
+                    a(href='/recetas/#{item.name}')
+                      img.card-img-top(src='#{item.imageUrl}', alt='')
+                    .card-body
+                      h4.card-title
+                        a(href="/recetas/#{item.name}")  #{item.name}
+                      p  Origen : #{item.origen}
+                      p Tiempo de Preparacion : #{item.timeP}        
+    script(src='vendor/jquery/jquery.min.js')
+    script(src='vendor/bootstrap/js/bootstrap.bundle.min.js')

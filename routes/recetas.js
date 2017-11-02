@@ -16,13 +16,12 @@ exports.recetas = function(req, res){
 };
  
 exports.show = function(req, res){
-
-     receta.findById(req.params.id, function(err, recetas){
+     receta.findById(req.params.id, function(err, receta){
       if(err){
          res.send(err);
       }else{
          res.render('recetas/show', {
-            recetas: recetas
+            receta : receta
          });
       }
    });
