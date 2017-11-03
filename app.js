@@ -55,8 +55,11 @@ app.get("/graphics", function(req,res){
 	res.render("graphics");
 });
 app.get('/recetas', recetas.recetas);
-app.get('/recetas/:id', recetas.show);
-app.get('/recetas/:id/edit', recetas.edit);
+app.get('/recetas/:id',recetas.show);
+
+app.get('/recetas/:id', function(req,res){
+	var id = req.params.id
+})
 
 
 // method post

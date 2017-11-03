@@ -20,7 +20,7 @@ exports.show = function(req, res){
       if(err){
          res.send(err);
       }else{
-         res.render('recetas/show', {
+         res.render('show', {
             receta : receta
          });
       }

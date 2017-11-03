@@ -1,4 +1,37 @@
-h1 #{receta.name} #{receta.origen}
-  div(style='white-space:pre;') #{receta.instrucciones}
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title Recetas
+    // Bootstrap core CSS
+    link(href='vendor/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+    // Custom styles for this template
+    link(href='css/3-col-portfolio.css', rel='stylesheet')
+  body
+    // Navigation
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+      .container
+        a.navbar-brand(href='#') Start Bootstrap
+        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarResponsive', aria-controls='navbarResponsive', aria-expanded='false', aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        #navbarResponsive.collapse.navbar-collapse
+          ul.navbar-nav.ml-auto
+            li.nav-item.active
+              a.nav-link(href='/inicio')
+                | inicio
+                span.sr-only (current)
+            li.nav-item
+              a.nav-link(href='/graphics') Estadísticas Gráficas
+            li.nav-item
+              a.nav-link(href='#') seleccionar idioma
+h1 #{receta.name} 
+p Origen: #{receta.origen} 
+p Instrucciones: #{receta.instrucciones}
+p tiempo de preparación #{receta.timeP}
   br
-  a(href="/personajes") Volver atrás
+  a(href="/recetas") Volver atrás
+  script(src='vendor/jquery/jquery.min.js')
+  script(src='vendor/bootstrap/js/bootstrap.bundle.min.js')

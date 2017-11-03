@@ -38,12 +38,14 @@ html(lang='en')
        each item in recetas
             .col-lg-4.col-sm-6.portfolio-item
               .card.h-100
-                    a(href='/recetas/#{item.name}')
+                    a(href='/recetas/item._id}')
                       img.card-img-top(src='#{item.imageUrl}', alt='')
                     .card-body
                       h4.card-title
-                        a(href="/recetas/#{item.name}")  #{item.name}
+                        a(href="/recetas/_id")  #{item.name}
                       p  Origen : #{item.origen}
-                      p Tiempo de Preparacion : #{item.timeP}        
+                      p Tiempo de Preparacion : #{item.timeP}
+                      p id: #{item.id}
+
     script(src='vendor/jquery/jquery.min.js')
     script(src='vendor/bootstrap/js/bootstrap.bundle.min.js')
